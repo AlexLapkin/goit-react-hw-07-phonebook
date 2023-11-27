@@ -1,0 +1,35 @@
+.contacts_item_btn {
+    display: block;
+    margin-left: 20px;
+    background-color: rgb(0, 140, 255);
+    color: white;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
+.contacts_item_btn:hover,
+.contacts_item_btn:focus {
+    background-color: brown;
+}
+
+.contacts_item {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid gray;
+    
+}
+
+.contacts_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contacts_cont {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+    
+}

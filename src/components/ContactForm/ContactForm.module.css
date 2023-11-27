@@ -1,0 +1,40 @@
+.contact_form_cont {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    width: 300px;
+    align-items: center;
+    background-color: rgb(196, 210, 212);
+    border-radius: 10px;
+    }
+
+.contact_form_inp {
+   width: 200px;
+   height: 25px;
+   border: 1px solid rgb(1, 1, 15);
+   border-radius: 5px;
+   padding-left: 10px;
+}
+
+.contact_form_btn {
+    width: 120px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5%;
+    margin-top: 20px;
+    background-color: rgb(10, 62, 204);
+    color: white;
+    border: none;
+}
+
+.contact_form_btn:hover,
+.contact_form_btn:focus {
+    background-color: blueviolet;
+}
+
+.contact_form_cont_text {
+  font-size: 16px;
+  
+}
