@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import Notiflix from "notiflix";
 
 axios.defaults.baseURL = "https://6560ec1f83aba11d99d1b525.mockapi.io";
 
@@ -33,8 +34,14 @@ export const deleteContact = createAsyncThunk('contacts/deleteContact', async (c
     thunkAPI) => {
     try {
         const { data } = await axios.delete(`/contacts/${contactId}`);
+        // Повідомлення про видалення з книги контакту
+        Notiflix.Notify.info(`Contact ${data.name} is deleted!`, {
+            position: 'right-center',
+            timeout: 3000,
+        });
         // Це буде записано в action.payload ({ payload }) редюсера
         return data;
+        
          } catch (err) {
         return thunkAPI.rejectWithValue(err.response.data);
     }

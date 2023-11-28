@@ -29,16 +29,18 @@ const ContactForm = () => {
 
     if (hasRepeateContact) {
       alert(`${contact.name} is already in contacts!`);
+      setClickBtn(false);
     } else {
       dispatch(addContact(finalContacts));
       setName('');
       setPhone('');
-      Notiflix.Notify.info(`Contact ${contact.name} is added!`, {
+      setTimeout(() => setClickBtn(false), 1000);
+      // Повідомлення про додавання до книги контакту
+      Notiflix.Notify.success(`Contact ${contact.name} is added!`, {
         position: 'right-center',
         timeout: 3000,
       });
     }
-    setTimeout(() => setClickBtn(false), 1000);
   };
 
   // Функція обробки подіі сабміту форми
