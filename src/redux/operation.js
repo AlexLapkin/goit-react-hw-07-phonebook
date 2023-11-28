@@ -35,7 +35,7 @@ export const deleteContact = createAsyncThunk('contacts/deleteContact', async (c
         const { data } = await axios.delete(`/contacts/${contactId}`);
         // Це буде записано в action.payload ({ payload }) редюсера
         return data;
-    } catch (err) {
+         } catch (err) {
         return thunkAPI.rejectWithValue(err.response.data);
     }
 }

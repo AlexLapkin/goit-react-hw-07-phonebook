@@ -5,7 +5,6 @@ import css from './App.module.css';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import Loader from './Loader/Loader';
 import { fetchContacts } from 'redux/operation';
 import { selectIsLoading, selectError } from 'redux/selectors';
 
@@ -25,7 +24,7 @@ export const App = () => {
       <ContactForm />
       <h2 className={css.app_cont_subtitle}>Contacts</h2>
       <Filter />
-      {isLoading && !error && <Loader />}
+      {isLoading && !error}
       <ContactList />
     </div>
   );

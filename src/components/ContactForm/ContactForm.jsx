@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { selectContacts } from 'redux/selectors';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../Loader/Loader';
 import { addContact } from 'redux/operation';
+import Notiflix from 'notiflix';
 import css from './ContactForm.module.css';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [clickBtn, setClickBtn] = useState(false);
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
@@ -30,7 +33,12 @@ const ContactForm = () => {
       dispatch(addContact(finalContacts));
       setName('');
       setPhone('');
+      Notiflix.Notify.info(`Contact ${contact.name} is added!`, {
+        position: 'right-center',
+        timeout: 3000,
+      });
     }
+    setTimeout(() => setClickBtn(false), 1000);
   };
 
   // Функція обробки подіі сабміту форми
@@ -40,6 +48,7 @@ const ContactForm = () => {
       name,
       phone,
     };
+    setClickBtn(true);
     handleAddContact(contact);
   };
 
@@ -75,7 +84,7 @@ const ContactForm = () => {
         />
       </label>
       <button type="submit" className={css.contact_form_btn}>
-        Add contact{' '}
+        {!clickBtn ? 'Add contact' : <Loader className="spinner" />}
       </button>
     </form>
   );

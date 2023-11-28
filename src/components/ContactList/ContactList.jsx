@@ -1,14 +1,11 @@
 import { selectFilteredContacts } from 'redux/selectors';
-//import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/operation';
-//import Loader from '../Loader/Loader';
 import css from './ContactList.module.css';
 
 const ContactList = () => {
   const dispatch = useDispatch();
   const filteredContacts = useSelector(selectFilteredContacts);
-  //const [clickButtonDel, setClickButtonDel] = useState(false);
 
   return (
     <ul className={css.contacts_cont}>
